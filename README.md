@@ -27,7 +27,7 @@ The recommended version of **Node.js** for this project is **v23.5.0** (or highe
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/gabrielcarby/web-restaurant-api.git
+git clone https://github.com/leleswave/web-restaurant-api.git
 cd web-restaurant-api
 ```
 
