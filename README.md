@@ -1,103 +1,55 @@
+# Restaurant Menu API (SQLite Branch)
 
-# Web Restaurant API
+This branch of the web-restaurant-api uses SQLite as the database for storing and retrieving restaurant menu data.
 
-This project implements a **GraphQL API** for a restaurant, allowing queries for the full menu and fetching information about different categories of dishes, including **appetizers**, **entrees**, **sandwiches**, **tacos**, **enchiladas**, **fajitas**, **quiche**, and **green salads**.
+## Description
+
+This Node.js application provides a GraphQL API for managing restaurant menu data. It utilizes SQLite for persistent data storage, making it lightweight and easy to deploy.
+
+## Features
+
+* **GraphQL API:** Provides a GraphQL endpoint for querying and mutating menu data.
+* **SQLite Database:** Uses SQLite for data persistence, ideal for development and small-scale deployments.
+* **Automatic Database Population:** Automatically creates and populates the SQLite database on startup if it doesn't exist.
+* **Data Models:** Defines data models for menu items using Sequelize ORM.
+* **Easy Setup:** Simple installation and setup process.
 
 ## Technologies Used
 
-- **Node.js**: JavaScript runtime environment for the server.
-- **GraphQL**: API for flexible and efficient data querying.
-- **Mocha**: Test framework for JavaScript.
-- **Chai**: Assertion library for testing APIs and functions.
-- **Express**: Web framework for building the server.
+* Node.js
+* GraphQL
+* Express.js
+* Sequelize ORM
+* SQLite
 
 ## Prerequisites
 
-Before running the project, you need to have **Node.js** installed. To check the versions, use the following commands:
-
-```bash
-node -v
-npm -v
-```
-
-The recommended version of **Node.js** for this project is **v23.5.0** (or higher). The **npm** version should be **11.1.0**.
+* Node.js (v14 or later)
+* npm (or yarn)
 
 ## Installation
 
-1. Clone the repository:
+1.  Clone the repository:
 
-```bash
-git clone https://github.com/leleswave/web-restaurant-api.git
-cd web-restaurant-api
-```
+    ```bash
+    git clone [https://github.com/leleswave/web-restaurant-api.git](https://github.com/leleswave/web-restaurant-api.git)
+    ```
 
-2. Install the dependencies:
+2.  Navigate to the `SQLite` branch:
 
-```bash
-npm install
-```
+    ```bash
+    git checkout SQLite
+    ```
 
-This will install all the necessary dependencies for the project.
+3.  Install dependencies:
 
-## Running the API
+    ```bash
+    npm install
+    ```
 
-To run the API, use the following command:
+## Usage
+
+To start the development server and automatically populate the database, run:
 
 ```bash
 npm start
-```
-
-The server will start and be available at `http://localhost:4000/graphql`. You can use this URL to test your API with a tool like **Postman** or **GraphiQL**.
-
-## Testing the API
-
-The project uses **Mocha** for automated testing. To run the tests, use the command:
-
-```bash
-npm test
-```
-
-The tests cover the following aspects of the API:
-
-- **Menu Categories**: Verifies that the menu categories are populated correctly and are not empty.
-- **Item Prices**: Ensures that prices are valid numbers and correctly set.
-- **Menu Items**: Verifies that menu items have non-empty names, valid prices, and that certain categories contain vegetarian items, different prices, and tacos priced over 9.
-
-Example of test output:
-
-```
-  GraphQL API Category
-    ✔ should fetch items by category
-    ✔ should have at least two items in the sandwiches category
-    ✔ should ensure enchiladas category is not empty
-
-  GraphQL API Prices
-    ✔ should fetch entrees with price
-    ✔ should fetch sandwiches with full and half price
-    ✔ should fetch enchiladas with valid prices
-    ✔ should fetch soup and salad combos with valid prices
-    ✔ should fetch quiche menu with price
-    ✔ should have price as a number for all items
-    ✔ should have all prices greater than zero
-    ✔ should fetch green salads with different prices
-    ✔ should have tacos with prices greater than 9
-
-  GraphQL API General
-    ✔ should fetch the full menu
-    ✔ should fetch valid fajitas
-    ✔ should return correct menu item for a taco
-    ✔ should have non-null names for all menu items
-    ✔ should have non-empty names for all menu items
-    ✔ should fetch vegetarian tacos
-    ✔ should have fajitas with 'Steak' in their name
-
-  19 passing (62ms)
-```
-
-### Dependencies
-
-- **graphql**: Library for implementing GraphQL.
-- **express**: Web server framework.
-- **mocha**: Testing framework.
-- **chai**: Assertion library.
-- **supertest**: For performing integration tests of the API.
