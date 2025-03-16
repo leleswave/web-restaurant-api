@@ -3,13 +3,21 @@
 
 This project implements a **GraphQL API** for a restaurant, allowing queries for the full menu and fetching information about different categories of dishes, including **appetizers**, **entrees**, **sandwiches**, **tacos**, **enchiladas**, **fajitas**, **quiche**, and **green salads**.
 
-## Technologies Used
+## 🔀 Branch Information
+
+* **🌳 `main` Branch:** This branch contains the core implementation of the GraphQL API for the restaurant menu.
+* **💾 `SQLite` Branch:** This branch contains an implementation demonstrating how to connect the API with a SQLite database.
+* **💻 `cmd` Branch:** This branch includes a small Node.js script designed to run as a binary. It allows users to execute GraphQL queries against the restaurant API directly from the terminal.
+
+
+## Technologies Used (Main)
 
 - **Node.js**: JavaScript runtime environment for the server.
 - **GraphQL**: API for flexible and efficient data querying.
 - **Mocha**: Test framework for JavaScript.
 - **Chai**: Assertion library for testing APIs and functions.
 - **Express**: Web framework for building the server.
+
 
 ## Prerequisites
 
