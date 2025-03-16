@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "start": "node src/server.js",
+        "start": "node --no-warnings src/server.js",
         "test": "mocha --require chai/register-assert"
     },
     "dependencies": {

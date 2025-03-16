@@ -1,0 +1,16 @@
+{
+  "name": "cmd",
+  "version": "1.0.0",
+  "description": "cmd web restaurant menu",
+  "type": "module",
+  "bin": {
+    "restaurant-menu": "export NODE_OPTIONS=--no-deprecation index.js"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "graphql": "^16.6.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings --no-deprecation index.js"
+  }
+}

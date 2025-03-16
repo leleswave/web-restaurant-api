@@ -1,5 +1,4 @@
 import menu from '../data/menu.js';
-
 const commonResolver = {
     name: (parent) => parent.name,
     description: (parent) => parent.description,
@@ -7,7 +6,7 @@ const commonResolver = {
 }
 const resolvers = {
     Query: {
-        allMenuItems: () => menu
+        allMenuItems: () => menu,
     },
     Sandwiches: {
         cold: () => menu.sandwiches.cold,
