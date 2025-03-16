@@ -1,103 +1,99 @@
+# Restaurant Menu CLI
 
-# Web Restaurant API
+A command-line tool to query a GraphQL API for restaurant menu data.
 
-This project implements a **GraphQL API** for a restaurant, allowing queries for the full menu and fetching information about different categories of dishes, including **appetizers**, **entrees**, **sandwiches**, **tacos**, **enchiladas**, **fajitas**, **quiche**, and **green salads**.
+## Description
+
+This Node.js CLI tool allows developers and testers to interact with a GraphQL API endpoint for restaurant menu data directly from the command line. It leverages Commander.js for easy command-line argument parsing and `node-fetch` (or built-in fetch) to make HTTP requests to the GraphQL API.
+
+**Note:** This CLI is designed to query a specific GraphQL API structure related to a restaurant menu. The output structure will mirror the data structure and the GraphQL schema of the API being queried.
+
+## Features
+
+* **Query GraphQL APIs:** Sends GraphQL queries to a specified endpoint.
+* **Command-Line Interface:** Easy-to-use command-line interface with clear options.
+* **Flexible Testing:** Quickly test GraphQL queries and inspect the results.
+* **Output Aligned with API Structure:** The CLI returns data in a format that mirrors the GraphQL API's schema and data structure.
 
 ## Technologies Used
 
-- **Node.js**: JavaScript runtime environment for the server.
-- **GraphQL**: API for flexible and efficient data querying.
-- **Mocha**: Test framework for JavaScript.
-- **Chai**: Assertion library for testing APIs and functions.
-- **Express**: Web framework for building the server.
+* Node.js
+* Commander.js
+* `node-fetch` (or built-in fetch)
 
 ## Prerequisites
 
-Before running the project, you need to have **Node.js** installed. To check the versions, use the following commands:
-
-```bash
-node -v
-npm -v
-```
-
-The recommended version of **Node.js** for this project is **v23.5.0** (or higher). The **npm** version should be **11.1.0**.
+* Node.js (v14 or later)
+* npm (or yarn)
 
 ## Installation
 
-1. Clone the repository:
+1.  Clone the repository:
 
-```bash
-git clone https://github.com/leleswave/web-restaurant-api.git
-cd web-restaurant-api
-```
+    ```bash
+    git clone [https://github.com/leleswave/web-restaurant-api.git](https://github.com/leleswave/web-restaurant-api.git)
+    ```
 
-2. Install the dependencies:
+2.  Navigate to the `cmd` branch:
 
-```bash
-npm install
-```
+    ```bash
+    git checkout cmd
+    ```
 
-This will install all the necessary dependencies for the project.
+3.  Navigate to the `cmd` directory:
 
-## Running the API
+    ```bash
+    cd cmd
+    ```
 
-To run the API, use the following command:
+4.  Install dependencies:
 
-```bash
-npm start
-```
+    ```bash
+    npm install
+    ```
 
-The server will start and be available at `http://localhost:4000/graphql`. You can use this URL to test your API with a tool like **Postman** or **GraphiQL**.
+5.  Create a symbolic link to the executable:
 
-## Testing the API
+    ```bash
+    npm link
+    ```
 
-The project uses **Mocha** for automated testing. To run the tests, use the command:
+## Usage
 
-```bash
-npm test
-```
+ ```bash
+    restaurant-menu --query '<graphql_query>'
+  ```
 
-The tests cover the following aspects of the API:
+## Example
+ 
+ ```bash
+   restaurant-menu --query "{ allMenuItems { sandwiches { cold { name } } } }"
+  ```
 
-- **Menu Categories**: Verifies that the menu categories are populated correctly and are not empty.
-- **Item Prices**: Ensures that prices are valid numbers and correctly set.
-- **Menu Items**: Verifies that menu items have non-empty names, valid prices, and that certain categories contain vegetarian items, different prices, and tacos priced over 9.
-
-Example of test output:
-
-```
-  GraphQL API Category
-    ✔ should fetch items by category
-    ✔ should have at least two items in the sandwiches category
-    ✔ should ensure enchiladas category is not empty
-
-  GraphQL API Prices
-    ✔ should fetch entrees with price
-    ✔ should fetch sandwiches with full and half price
-    ✔ should fetch enchiladas with valid prices
-    ✔ should fetch soup and salad combos with valid prices
-    ✔ should fetch quiche menu with price
-    ✔ should have price as a number for all items
-    ✔ should have all prices greater than zero
-    ✔ should fetch green salads with different prices
-    ✔ should have tacos with prices greater than 9
-
-  GraphQL API General
-    ✔ should fetch the full menu
-    ✔ should fetch valid fajitas
-    ✔ should return correct menu item for a taco
-    ✔ should have non-null names for all menu items
-    ✔ should have non-empty names for all menu items
-    ✔ should fetch vegetarian tacos
-    ✔ should have fajitas with 'Steak' in their name
-
-  19 passing (62ms)
-```
-
-### Dependencies
-
-- **graphql**: Library for implementing GraphQL.
-- **express**: Web server framework.
-- **mocha**: Testing framework.
-- **chai**: Assertion library.
-- **supertest**: For performing integration tests of the API.
+ ```bash
+      {
+        "data": 
+            {
+                "allMenuItems": 
+                    {
+                        "sandwiches": 
+                            {
+                                "cold": [
+                                            {
+                                                "name": "Turkey & Avocado"
+                                            },
+                                            {
+                                                "name": "Pub Club"
+                                            },
+                                            {
+                                                "name": "Rare Roast Beef & Swiss"
+                                            },
+                                            {
+                                                "name": "Veggie"
+                                            }
+                                        ]
+                            }
+                }
+            }
+    }
+    
